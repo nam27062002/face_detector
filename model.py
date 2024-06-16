@@ -1,7 +1,11 @@
 from keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
+import os
+import logging
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+logging.getLogger('tensorflow').setLevel(logging.ERROR)
 
 class ImageClassifier:
     def __init__(self, model_path, labels_path):
@@ -24,7 +28,7 @@ class ImageClassifier:
         index = np.argmax(prediction)
         class_name = self.class_names[index]
         confidence_score = prediction[0][index]
-        return class_name[2:], confidence_score
+        return class_name, confidence_score
 
 
 

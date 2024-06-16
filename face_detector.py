@@ -50,6 +50,3 @@ class FaceExtractor:
             cv2.imwrite(face_filename, sharpened_face)
             cv2.rectangle(image, (new_x, new_y), (new_x + new_w, new_y + new_h), (255, 0, 0), 2)
 
-# Usage
-face_extractor = FaceExtractor()
-face_extractor.process_images()
